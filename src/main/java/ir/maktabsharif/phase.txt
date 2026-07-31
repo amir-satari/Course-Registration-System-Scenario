@@ -1,0 +1,13 @@
+Phase 1 – Project Setup
+Tasks
+1. Create a Maven project with groupId = com.university and artifactId = course-registration-system.
+2. Add dependencies to pom.xml (Hibernate Core, PostgreSQL Driver, JPA API).
+3. Create persistence.xml inside src/main/resources/META-INF/ with the following configuration:
+o Persistence unit name: course-unit
+o Provider: org.hibernate.jpa.HibernatePersistenceProvider
+o JDBC driver: org.postgresql.Driver
+o JDBC URL: jdbc:postgresql://localhost:5432/course_db
+o Username and password (use your own credentials)
+o Hibernate dialect: org.hibernate.dialect.PostgreSQLDialect
+o hbm2ddl.auto = create
+4. Create EntityManagerFactory using Persistence.createEntityManagerFactory("course-unit") and test the connection.
