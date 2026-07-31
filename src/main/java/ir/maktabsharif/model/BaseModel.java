@@ -1,4 +1,10 @@
 package ir.maktabsharif.model;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+
 //Database Design
 //Create the following tables using JPA annotations:
 //students table contains:
@@ -19,7 +25,10 @@ package ir.maktabsharif.model;
 //• student_id (INTEGER) – Reference to student
 //• course_id (INTEGER) – Reference to course
 //• registration_date (DATE) – Date of registration
+@MappedSuperclass
 public class BaseModel <ID extends Number>{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private ID id;
 
     public ID getId() {

@@ -11,3 +11,44 @@ o Username and password (use your own credentials)
 o Hibernate dialect: org.hibernate.dialect.PostgreSQLDialect
 o hbm2ddl.auto = create
 4. Create EntityManagerFactory using Persistence.createEntityManagerFactory("course-unit") and test the connection.
+
+
+
+Phase 2 – Student and Course Management
+Student Entity
+Create a Student entity with the following fields:
+• id (Long) – primary key
+• firstName (String)
+• lastName (String)
+• nationalCode (String) – unique, not null
+• email (String) – unique, not null
+Use annotations: @Entity, @Id, @GeneratedValue, @Column.
+Course Entity
+Create a Course entity with the following fields:
+• id (Long) – primary key
+• title (String) – not null
+• capacity (Integer) – greater than zero
+• category (CourseCategory enum) – using @Enumerated(EnumType.STRING)
+• instructor (Instructor embeddable) – using @Embedded
+Instructor (Embeddable)
+Create an Instructor class with @Embeddable containing:
+• instructorName (String)
+• email (String)
+CourseCategory (Enum)
+Create an enum with values: PROGRAMMING, DATABASE, WEB, NETWORK, AI.
+Validation Rules
+• National code cannot be empty.
+• Email cannot be empty.
+• Course title cannot be empty.
+• Capacity must be greater than zero.
+If validation fails, throw ValidationException.
+Operations
+Implement the following operations for both Student and Course:
+• Add (save)
+• Update
+• Delete
+• Find By ID
+
+
+
+
